@@ -27,7 +27,7 @@ namespace Pruefungsaufgabe {
 
     async function handleShowDB(_e: Event): Promise<void> {
 
-        let response: Response = await fetch("https://gis-sose-2020.herokuapp.com/show");
+        let response: Response = await fetch("https://gis-sose-2020-pruefungsaufgabe.herokuapp.com/show");
         console.log(response);
         let bestellungen: Bestellung[] = await response.json();
         let output: HTMLDivElement = <HTMLDivElement>document.getElementById("ausgabeB");
@@ -136,7 +136,7 @@ namespace Pruefungsaufgabe {
         let clickedButton: HTMLElement = <HTMLElement>_e.target;
         let parentDiv: HTMLElement = <HTMLElement>clickedButton.parentElement;
         let idToRemove: string = parentDiv.getAttribute("_id")!;
-        await fetch("https://gis-sose-2020.herokuapp.com/removeOne?id=" + idToRemove);
+        await fetch("https://gis-sose-2020-pruefungsaufgabe.herokuapp.com/removeOne?id=" + idToRemove);
         handleShowDB(_e);
     }
 
@@ -146,7 +146,7 @@ namespace Pruefungsaufgabe {
         let clickedButton: HTMLElement = <HTMLElement>_e.target;
         let parentDiv: HTMLElement = <HTMLElement>clickedButton.parentElement;
         let idToChange: string = parentDiv.getAttribute("_id")!;
-        await fetch("https://gis-sose-2020.herokuapp.com/addStatusFinished?id=" + idToChange);
+        await fetch("https://gis-sose-2020-pruefungsaufgabe.herokuapp.com/addStatusFinished?id=" + idToChange);
         handleShowDB(_e);
     }
 
@@ -156,14 +156,14 @@ namespace Pruefungsaufgabe {
         let clickedButton: HTMLElement = <HTMLElement>_e.target;
         let parentDiv: HTMLElement = <HTMLElement>clickedButton.parentElement;
         let idToChange: string = parentDiv.getAttribute("_id")!;
-        await fetch("https://gis-sose-2020.herokuapp.com/addStatusDelivered?id=" + idToChange);
+        await fetch("https://gis-sose-2020-pruefungsaufgabe.herokuapp.com/addStatusDelivered?id=" + idToChange);
         handleShowDB(_e);
     }
 
     // Alle Bestellungen löschen
     async function handleDeleteAll(): Promise<void> {
 
-        await fetch("https://gis-sose-2020.herokuapp.com/deleteAll");
+        await fetch("https://gis-sose-2020-pruefungsaufgabe.herokuapp.com/deleteAll");
         location.reload();
     }
 

@@ -5,7 +5,7 @@ var Pruefungsaufgabe;
     document.getElementById("showDB")?.addEventListener("click", handleShowDB);
     document.getElementById("deleteAll")?.addEventListener("click", handleDeleteAll);
     async function handleShowDB(_e) {
-        let response = await fetch("https://gis-sose-2020.herokuapp.com/show");
+        let response = await fetch("https://gis-sose-2020-pruefungsaufgabe.herokuapp.com/show");
         console.log(response);
         let bestellungen = await response.json();
         let output = document.getElementById("ausgabeB");
@@ -90,7 +90,7 @@ var Pruefungsaufgabe;
         let clickedButton = _e.target;
         let parentDiv = clickedButton.parentElement;
         let idToRemove = parentDiv.getAttribute("_id");
-        await fetch("https://gis-sose-2020.herokuapp.com/removeOne?id=" + idToRemove);
+        await fetch("https://gis-sose-2020-pruefungsaufgabe.herokuapp.com/removeOne?id=" + idToRemove);
         handleShowDB(_e);
     }
     // Status einer Bestellung auf "fertig" setzen
@@ -98,7 +98,7 @@ var Pruefungsaufgabe;
         let clickedButton = _e.target;
         let parentDiv = clickedButton.parentElement;
         let idToChange = parentDiv.getAttribute("_id");
-        await fetch("https://gis-sose-2020.herokuapp.com/addStatusFinished?id=" + idToChange);
+        await fetch("https://gis-sose-2020-pruefungsaufgabe.herokuapp.com/addStatusFinished?id=" + idToChange);
         handleShowDB(_e);
     }
     // Status einer Bestellung auf "geliefert" setzen
@@ -106,12 +106,12 @@ var Pruefungsaufgabe;
         let clickedButton = _e.target;
         let parentDiv = clickedButton.parentElement;
         let idToChange = parentDiv.getAttribute("_id");
-        await fetch("https://gis-sose-2020.herokuapp.com/addStatusDelivered?id=" + idToChange);
+        await fetch("https://gis-sose-2020-pruefungsaufgabe.herokuapp.com/addStatusDelivered?id=" + idToChange);
         handleShowDB(_e);
     }
     // Alle Bestellungen löschen
     async function handleDeleteAll() {
-        await fetch("https://gis-sose-2020.herokuapp.com/deleteAll");
+        await fetch("https://gis-sose-2020-pruefungsaufgabe.herokuapp.com/deleteAll");
         location.reload();
     }
 })(Pruefungsaufgabe || (Pruefungsaufgabe = {}));

@@ -151,7 +151,7 @@ var Pruefungsaufgabe;
     document.getElementById("kaufen")?.addEventListener("click", handleSendDB);
     async function handleSendDB() {
         formData = new FormData(document.forms[0]);
-        let url = "https://gis-sose-2020.herokuapp.com/send";
+        let url = "https://gis-sose-2020-pruefungsaufgabe.herokuapp.com/send";
         let query = new URLSearchParams(formData);
         url = url + "?" + query.toString();
         await fetch(url);
